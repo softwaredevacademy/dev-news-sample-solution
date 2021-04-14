@@ -14,3 +14,6 @@ Start the Spring application
 ```bash
 ./gradlew bootRun
 ```
+
+## Testing
+A sample collection of Postman requests can be found in `Dev News.postman_collection.json` which can be imported into the Postman application.
