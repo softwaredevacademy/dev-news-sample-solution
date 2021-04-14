@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class TopicController {
@@ -31,7 +32,7 @@ public class TopicController {
     }
 
     @GetMapping("/articles/{articleId}/topics")
-    public ResponseEntity<List<Topic>> listTopicsOnArticle(@PathVariable Long articleId) {
+    public ResponseEntity<Set<Topic>> listTopicsOnArticle(@PathVariable Long articleId) {
         Article article = articleRepository.findById(articleId)
                 .orElseThrow(ResourceNotFoundException::new);
         return ResponseEntity.ok(article.getTopics());
@@ -48,7 +49,7 @@ public class TopicController {
         Article article = articleRepository.findById(articleId).orElseThrow(ResourceNotFoundException::new);
         Topic topic = topicRepository.findByName(topicParams.getName())
                 .orElse(topicParams);
-        List<Article> topicArticles = topic.getArticles();
+        Set<Article> topicArticles = topic.getArticles();
         topicArticles.add(article);
         return ResponseEntity.status(HttpStatus.CREATED)
             .body(topicRepository.save(topic));

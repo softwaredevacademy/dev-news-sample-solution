@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class ArticleController {
@@ -35,7 +36,7 @@ public class ArticleController {
     }
 
     @GetMapping("/topics/{topicId}/articles")
-    public ResponseEntity<List<Article>> listArticlesByTopic(@PathVariable Long topicId) {
+    public ResponseEntity<Set<Article>> listArticlesByTopic(@PathVariable Long topicId) {
         Topic topic = topicRepository.findById(topicId).orElseThrow(ResourceNotFoundException::new);
         return ResponseEntity.ok(topic.getArticles());
     }
@@ -65,6 +66,9 @@ public class ArticleController {
     public ResponseEntity<Article> deleteArticle(@PathVariable Long id) {
         Article article = articleRepository.findById(id)
                 .orElseThrow(ResourceNotFoundException::new);
+        for (Topic topic: article.getTopics()) {
+            topic.getArticles().remove(article);
+        }
         articleRepository.delete(article);
         return ResponseEntity.ok(article);
     }

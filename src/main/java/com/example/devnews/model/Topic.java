@@ -1,12 +1,12 @@
 package com.example.devnews.model;
 
-import com.example.devnews.model.Article;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Represents an article topic.
@@ -23,7 +23,7 @@ public class Topic {
     private String name;
 
     @ManyToMany
-    private List<Article> articles = new ArrayList<>();
+    private Set<Article> articles = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -42,11 +42,11 @@ public class Topic {
     }
 
     @JsonIgnore
-    public List<Article> getArticles() {
+    public Set<Article> getArticles() {
         return articles;
     }
 
-    public void setArticles(List<Article> articles) {
+    public void setArticles(Set<Article> articles) {
         this.articles = articles;
     }
 }

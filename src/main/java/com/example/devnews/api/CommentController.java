@@ -7,6 +7,7 @@ import com.example.devnews.repository.CommentRepository;
 import com.example.devnews.api.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -42,7 +43,8 @@ public class CommentController {
     }
 
     @PutMapping("/comments/{id}")
-    public ResponseEntity<Comment> updateComment(@PathVariable Long id, @RequestBody Comment updatedComment) {
+    public ResponseEntity<Comment> updateComment(@PathVariable Long id, @Validated({Comment.PutValidationGroup.class})
+    @RequestBody Comment updatedComment) {
         Comment comment = commentRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
         updatedComment.setId(comment.getId());
         updatedComment.setArticle(comment.getArticle());

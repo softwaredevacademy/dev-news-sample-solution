@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Represents an article.
@@ -30,11 +32,11 @@ public class Article {
     @Column(nullable = false)
     private String authorName;
 
-    @OneToMany(mappedBy = "article")
+    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
     List<Comment> comments;
 
     @ManyToMany(mappedBy = "articles")
-    List<Topic> topics;
+    Set<Topic> topics = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -76,11 +78,11 @@ public class Article {
         this.comments = comments;
     }
 
-    public List<Topic> getTopics() {
+    public Set<Topic> getTopics() {
         return topics;
     }
 
-    public void setTopics(List<Topic> topics) {
+    public void setTopics(Set<Topic> topics) {
         this.topics = topics;
     }
 

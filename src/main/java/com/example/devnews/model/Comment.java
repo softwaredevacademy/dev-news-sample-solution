@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * Represents a comment on an article {@link Article}.
@@ -13,6 +14,9 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Comment {
+
+    public interface PutValidationGroup {
+    };
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +33,7 @@ public class Comment {
     @ManyToOne
     @JsonIdentityReference(alwaysAsId=true)
     @JoinColumn(nullable = false)
+    @NotNull(groups = { PutValidationGroup.class })
     private Article article;
 
     public Long getId() {
