@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "32cf7fba-a075-4bd1-aa93-7d092ee08d45",
+		"_postman_id": "c1b9c055-17f1-4188-9c78-8afc5c85bfc7",
 		"name": "Dev News",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -18,65 +18,6 @@
 					"port": "8080",
 					"path": [
 						"articles"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List Articles By TopicId 2",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/topics/2/articles",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"topics",
-						"2",
-						"articles"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "List Articles By TopicId 3",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/topics/3/articles",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"topics",
-						"3",
-						"articles"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Article",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/articles/1",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"articles",
-						"1"
 					]
 				}
 			},
@@ -164,7 +105,26 @@
 			"response": []
 		},
 		{
-			"name": "Update Article",
+			"name": "Get Article",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/articles/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articles",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Article 2",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -192,26 +152,7 @@
 			"response": []
 		},
 		{
-			"name": "Delete Article",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/articles/2",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"articles",
-						"2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Post Comment On Article 1",
+			"name": "Create Comment 1 On Article 1",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -240,7 +181,7 @@
 			"response": []
 		},
 		{
-			"name": "Post Comment On Article 2",
+			"name": "Create Comment 2 On Article 2",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -269,27 +210,7 @@
 			"response": []
 		},
 		{
-			"name": "List Comments For Article",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/articles/1/comments",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"articles",
-						"1",
-						"comments"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Comment",
+			"name": "Update Comment 1",
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -317,7 +238,7 @@
 			"response": []
 		},
 		{
-			"name": "Delete Comment",
+			"name": "Delete Comment 1",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -499,6 +420,66 @@
 			"response": []
 		},
 		{
+			"name": "List Comments For Article",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/articles/1/comments",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articles",
+						"1",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Articles By TopicId 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/topics/2/articles",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topics",
+						"2",
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Articles By TopicId 3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/topics/3/articles",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"topics",
+						"3",
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Create Topic",
 			"request": {
 				"method": "POST",
@@ -526,7 +507,45 @@
 			"response": []
 		},
 		{
-			"name": "Delete Topic",
+			"name": "Delete Article 2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/articles/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articles",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Article 3",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/articles/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"articles",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Topic 1",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -545,7 +564,7 @@
 			"response": []
 		},
 		{
-			"name": "Delete Topic Association",
+			"name": "Delete Topic 2 Association With Article 1",
 			"request": {
 				"method": "DELETE",
 				"header": [],
